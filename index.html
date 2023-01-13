@@ -11,13 +11,13 @@
         <table>
             <thead>
                 <tr>
-                    <th colspan="2">資料寫入</th>
+                    <th colspan="2">記帳</th>
                 </tr>
             </thead>
             <tbody>
                 <iframe name="hidden_iframe" style="display:none;"></iframe>
                 <form
-                    action="https://script.google.com/macros/s/AKfycbyF5ofGiWp61rbgNYk6NlElVUAhIhraP8K-CrEHptQnx9hKqYATqRMxtp23-l_Ddk1QDQ/exec"
+                    action="https://script.google.com/macros/s/AKfycbxD2OccN_mldBiid9l50_3MJPLSRPe3R-ZIb8CMce6W5iagruCJEFZWIIV3Zay7Wj0elQ/exec"
                     method="get">
                     <tr>
                         <td><span>日期：</span><input type="date" name="date" placeholder="日期" /></td>
@@ -29,13 +29,13 @@
                         <td><span>標題：</span><input type="text" name="title" placeholder="標題" /></td>
                     </tr>
                     <tr>
-                        <td><span>簡述：</span><input type="text" name="short" placeholder="簡述" /></td>
+                        <td><span>類別：</span><select name="type">
+                                <option value="收入"> 收入 </option>
+                                <option value="支出"> 支出 </option>
+                            </select></td>
                     </tr>
                     <tr>
-                        <td><span>內容：</span><input type="text" name="long" placeholder="內容" /></td>
-                    </tr>
-                    <tr>
-                        <td><span>備註：</span><input type="text" name="ps" placeholder="備註" /></td>
+                        <td><span>金額：</span><input type="text" name="money" placeholder="金額" /></td>
                     </tr>
                     <tr style="text-align: center;">
                         <td><input type="submit" value="送出" /><input type="reset" value="重填" /></td>
