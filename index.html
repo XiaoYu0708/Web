@@ -9,10 +9,6 @@
         font-size: 20px;
     }
 
-    .form-style {
-        width: 1500px;
-    }
-
     .item {
         width: 30vw;
         height: 25px;
@@ -35,10 +31,6 @@
     @media (max-width: 1200px) {
         .title {
             font-size: 40px;
-        }
-
-        .form-style {
-            width: 1500px;
         }
 
         .item {
@@ -67,30 +59,43 @@
 <body style="text-align: center;">
     <tbody>
         <iframe name="hidden_iframe" style="display:none;"></iframe>
-        <div class="form-style">
-            <span class="title">記帳</span>
-            <form
-                action="https://script.google.com/macros/s/AKfycbxD2OccN_mldBiid9l50_3MJPLSRPe3R-ZIb8CMce6W5iagruCJEFZWIIV3Zay7Wj0elQ/exec"
-                method="get">
-                <div class="line"><span class="title">日期：</span><input type="date" name="date" placeholder="日期"
-                        class="item" /></div>
-                <div class="line"><span class="title">時間：</span><input type="time" name="time" placeholder="時間"
-                        class="item" /></div>
-                <div class="line"><span class="title">標題：</span><input type="text" name="title" placeholder="標題"
-                        class="item" />
-                </div>
-                <div class="line">
-                    <span class="title">類別：</span>
-                    <input type="radio" value="收入" name="type" checked /><a class="title">收入</a>
-                    <input type="radio" value="支出" name="type" /><a class="title">支出</a>
-                </div>
-                <div class="line"><span class="title">金額：</span><input type="text" name="money" placeholder="金額"
-                        class="item" />
-                </div>
-                <div class="line"><input type="submit" value="送出" class="submit-style" /><input type="reset" value="重填"
-                        class="submit-style" /></div>
-            </form>
-        </div>
+            <table align="center">
+                <tr>
+                    <th colspan="2" class="title">記帳</th>
+                </tr>
+                <form
+                    action="https://script.google.com/macros/s/AKfycbxD2OccN_mldBiid9l50_3MJPLSRPe3R-ZIb8CMce6W5iagruCJEFZWIIV3Zay7Wj0elQ/exec"
+                    method="get">
+                    <tr class="line">
+                        <td><span class="title">日期：</span></td>
+                        <td><input type="date" name="date" placeholder="日期" class="item" /></td>
+                    </tr>
+                    <tr class="line">
+                        <td><span class="title">時間：</span></td>
+                        <td><input type="time" name="time" placeholder="時間" class="item" /></td>
+                    </tr>
+                    <tr class="line">
+                        <td><span class="title">標題：</span></td>
+                        <td><input type="text" name="title" placeholder="標題" class="item" /></td>
+                    </tr>
+                    <tr class="line">
+                        <td>
+                            <span class="title">類別：</span>
+                        </td>
+                        <td align="left">
+                            <input type="radio" value="收入" name="type" checked /><a class="title">收入</a>
+                            <input type="radio" value="支出" name="type" /><a class="title">支出</a>
+                        </td>
+                    </tr>
+                    <tr class="line">
+                        <td><span class="title">金額：</span></td>
+                        <td><input type="text" name="money" placeholder="金額" class="item" /></td>
+                    <tr class="line">
+                        <td colspan="2"><input type="submit" value="送出" class="submit-style" /><input type="reset" value="重填"
+                                class="submit-style" /></td>
+                    </tr>
+                </form>
+            </table>
     </tbody>
 </body>
 
