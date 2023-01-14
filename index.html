@@ -1,49 +1,97 @@
 <!DOCTYPE html>
-<html style="background-color:  lightblue;height:100vh; width:100vw">
+<html style="background-color:  lightblue;">
 
 <head>
     <meta charset="UTF-8">
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 </head>
+<style>
+    .title {
+        font-size: 20px;
+    }
 
-<body>
-    <center>
-        <table>
-            <thead>
-                <tr>
-                    <th colspan="2">記帳</th>
-                </tr>
-            </thead>
-            <tbody>
-                <iframe name="hidden_iframe" style="display:none;"></iframe>
-                <form
-                    action="https://script.google.com/macros/s/AKfycbxD2OccN_mldBiid9l50_3MJPLSRPe3R-ZIb8CMce6W5iagruCJEFZWIIV3Zay7Wj0elQ/exec"
-                    method="get">
-                    <tr>
-                        <td><span>日期：</span><input type="date" name="date" placeholder="日期" /></td>
-                    </tr>
-                    <tr>
-                        <td><span>時間：</span><input type="time" name="time" placeholder="時間" /></td>
-                    </tr>
-                    <tr>
-                        <td><span>標題：</span><input type="text" name="title" placeholder="標題" /></td>
-                    </tr>
-                    <tr>
-                        <td><span>類別：</span><select name="type">
-                                <option value="收入"> 收入 </option>
-                                <option value="支出"> 支出 </option>
-                            </select></td>
-                    </tr>
-                    <tr>
-                        <td><span>金額：</span><input type="text" name="money" placeholder="金額" /></td>
-                    </tr>
-                    <tr style="text-align: center;">
-                        <td><input type="submit" value="送出" /><input type="reset" value="重填" /></td>
-                    </tr>
-                </form>
-            </tbody>
-        </table>
-    </center>
+    .form-style {
+        width: 1500px;
+    }
+
+    .item {
+        width: 30vw;
+        height: 25px;
+    }
+
+    .submit-style {
+        width: 50px;
+        height: 30px;
+    }
+
+    .line {
+        line-height: 30px;
+    }
+
+    input[type="radio"] {
+        width: 15px;
+        height: 15px;
+    }
+
+    @media (max-width: 1200px) {
+        .title {
+            font-size: 40px;
+        }
+
+        .form-style {
+            width: 1500px;
+        }
+
+        .item {
+            width: 30vw;
+            height: 45px;
+            font-size: 40px;
+        }
+
+        .submit-style {
+            width: 100px;
+            height: 50px;
+            font-size: 30px;
+        }
+
+        .line {
+            line-height: 45px;
+        }
+
+        input[type="radio"] {
+            width: 40px;
+            height: 40px;
+        }
+    }
+</style>
+
+<body style="text-align: center;">
+    <tbody>
+        <iframe name="hidden_iframe" style="display:none;"></iframe>
+        <div class="form-style">
+            <span class="title">記帳</span>
+            <form
+                action="https://script.google.com/macros/s/AKfycbxD2OccN_mldBiid9l50_3MJPLSRPe3R-ZIb8CMce6W5iagruCJEFZWIIV3Zay7Wj0elQ/exec"
+                method="get">
+                <div class="line"><span class="title">日期：</span><input type="date" name="date" placeholder="日期"
+                        class="item" /></div>
+                <div class="line"><span class="title">時間：</span><input type="time" name="time" placeholder="時間"
+                        class="item" /></div>
+                <div class="line"><span class="title">標題：</span><input type="text" name="title" placeholder="標題"
+                        class="item" />
+                </div>
+                <div class="line">
+                    <span class="title">類別：</span>
+                    <input type="radio" value="收入" name="type" checked /><a class="title">收入</a>
+                    <input type="radio" value="支出" name="type" /><a class="title">支出</a>
+                </div>
+                <div class="line"><span class="title">金額：</span><input type="text" name="money" placeholder="金額"
+                        class="item" />
+                </div>
+                <div class="line"><input type="submit" value="送出" class="submit-style" /><input type="reset" value="重填"
+                        class="submit-style" /></div>
+            </form>
+        </div>
+    </tbody>
 </body>
 
 </html>
