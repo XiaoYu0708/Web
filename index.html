@@ -59,44 +59,65 @@
 <body style="text-align: center;">
     <tbody>
         <iframe name="hidden_iframe" style="display:none;"></iframe>
-            <table align="center">
-                <tr>
-                    <th colspan="2" class="title">記帳</th>
+        <table align="center">
+            <tr>
+                <th colspan="2" class="title">記帳</th>
+            </tr>
+            <form action="#" method="post" name="Google-Post">
+                <tr class="line">
+                    <td><span class="title">日期：</span></td>
+                    <td><input type="date" name="date" placeholder="日期" class="item" /></td>
                 </tr>
-                <form
-                    action="https://script.google.com/macros/s/AKfycbxD2OccN_mldBiid9l50_3MJPLSRPe3R-ZIb8CMce6W5iagruCJEFZWIIV3Zay7Wj0elQ/exec"
-                    method="get">
-                    <tr class="line">
-                        <td><span class="title">日期：</span></td>
-                        <td><input type="date" name="date" placeholder="日期" class="item" /></td>
-                    </tr>
-                    <tr class="line">
-                        <td><span class="title">時間：</span></td>
-                        <td><input type="time" name="time" placeholder="時間" class="item" /></td>
-                    </tr>
-                    <tr class="line">
-                        <td><span class="title">標題：</span></td>
-                        <td><input type="text" name="title" placeholder="標題" class="item" /></td>
-                    </tr>
-                    <tr class="line">
-                        <td>
-                            <span class="title">類別：</span>
-                        </td>
-                        <td align="left">
-                            <input type="radio" value="收入" name="type" checked /><a class="title">收入</a>
-                            <input type="radio" value="支出" name="type" /><a class="title">支出</a>
-                        </td>
-                    </tr>
-                    <tr class="line">
-                        <td><span class="title">金額：</span></td>
-                        <td><input type="text" name="money" placeholder="金額" class="item" /></td>
-                    <tr class="line">
-                        <td colspan="2"><input type="submit" value="送出" class="submit-style" /><input type="reset" value="重填"
-                                class="submit-style" /></td>
-                    </tr>
-                </form>
-            </table>
+                <tr class="line">
+                    <td><span class="title">時間：</span></td>
+                    <td><input type="time" name="time" placeholder="時間" class="item" /></td>
+                </tr>
+                <tr class="line">
+                    <td><span class="title">標題：</span></td>
+                    <td><input type="text" name="title" placeholder="標題" class="item" /></td>
+                </tr>
+                <tr class="line">
+                    <td>
+                        <span class="title">類別：</span>
+                    </td>
+                    <td align="left">
+                        <input type="radio" value="收入" name="type" checked /><a class="title">收入</a>
+                        <input type="radio" value="支出" name="type" /><a class="title">支出</a>
+                    </td>
+                </tr>
+                <tr class="line">
+                    <td><span class="title">金額：</span></td>
+                    <td><input type="text" name="money" placeholder="金額" class="item" /></td>
+                <tr class="line">
+                    <td colspan="2"><input type="submit" value="送出" class="submit-style" onclick="pt()" /><input
+                            type="reset" value="重填" class="submit-style" /></td>
+                </tr>
+            </form>
+        </table>
     </tbody>
+    <script type="text/javascript">
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbw6Zege4VbXCd1qN60BgkGHDNTy2Bb7tl_FfXGuUL921mSl6pb6STrwSoB4SFToeOstKQ/exec'
+
+        const form_name = 'Google-Post'
+
+        const form = document.forms[form_name]
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => response_Success())
+                .catch(error => console.error('錯誤！', error.message))
+        })
+
+        function response_Success() {
+
+        }
+
+        function pt() {
+            alert("已送出");
+        }
+
+    </script>
 </body>
 
 </html>
