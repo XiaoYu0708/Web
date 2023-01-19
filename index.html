@@ -1,79 +1,41 @@
 <!DOCTYPE html>
-<html class="html">
+
+<html lang="en">
+
 <head>
     <title>記賬</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+<style>
+    html {
+        overflow: auto;
+    }
 
-<body class="body">
-    <tbody>
-        <iframe name="hidden_iframe" style="display:none;"></iframe>
-        <table align="center">
-            <tr>
-                <th colspan="2" class="title">記帳</th>
-            </tr>
-            <form action="#" method="post" name="Google-Post">
-                <tr class="line">
-                    <td><span class="title">日期：</span></td>
-                    <td><input type="date" name="date" placeholder="日期" class="item" /></td>
-                </tr>
-                <tr class="line">
-                    <td><span class="title">時間：</span></td>
-                    <td><input type="time" name="time" placeholder="時間" class="item" /></td>
-                </tr>
-                <tr class="line">
-                    <td><span class="title">標題：</span></td>
-                    <td><input type="text" name="title" placeholder="輸入標題" class="item" /></td>
-                </tr>
-                <tr class="line">
-                    <td>
-                        <span class="title">類別：</span>
-                    </td>
-                    <td align="left">
-                        <input type="radio" value="收入" name="type" checked /><a class="title">收入</a>
-                        <input type="radio" value="支出" name="type" /><a class="title">支出</a>
-                    </td>
-                </tr>
-                <tr class="line">
-                    <td><span class="title">金額：</span></td>
-                    <td><input type="text" name="money" placeholder="輸入金額" class="item" /></td>
-                <tr class="line">
-                    <td><span class="title">賬號：</span></td>
-                    <td><input type="text" name="user" placeholder="確認賬號" class="item" /></td>
-                <tr class="line">
-                    <td><span class="title">密碼：</span></td>
-                    <td><input type="password" name="passwd" placeholder="確認密碼" class="item" /></td>
-                <tr class="line">
-                    <td colspan="2"><input type="submit" value="送出" class="submit-style" onclick="pt()" /><input
-                            type="reset" value="重填" class="submit-style" /></td>
-                </tr>
-            </form>
-        </table>
-    </tbody>
-    <script type="text/javascript">
-        const scriptURL = 'https://script.google.com/macros/s/AKfycby4s0XGyFFNo4rImjNefYubtFt8RVZIrv6o396K9H9F0L09XBppawMpkZiOMGMHh9nvSg/exec'
+    html,
+    body,
+    div,
+    iframe {
+        margin: 0px;
+        padding: 0px;
+        height: 100%;
+        border: none;
+    }
 
-        const form_name = 'Google-Post'
+    iframe {
+        display: block;
+        width: 100%;
+        border: none;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+</style>
 
-        const form = document.forms[form_name]
-
-        form.addEventListener('submit', e => {
-            e.preventDefault()
-            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                .then(response => response_Success())
-                .catch(error => console.error('錯誤！', error.message))
-        })
-
-        function response_Success() {
-
-        }
-
-        function pt() {
-            alert("已送出");
-        }
-
-    </script>
+<body>
+    <iframe
+        src="https://script.google.com/macros/s/AKfycbz1ndL7dN2b22Sk0LyPqLEocyYgmmLc5tjasz4JFBQuwpyGNr4RgMaCMQDlUmAa-9lb/exec"
+        frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto">
+    </iframe>
 </body>
 
 </html>
