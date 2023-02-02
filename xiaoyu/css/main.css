@@ -7,7 +7,7 @@ body {
     padding-top: 36px;
 }
 
-.top{
+.top {
     text-align: right;
     padding-right: 20px;
     padding-bottom: 10px;
@@ -29,11 +29,11 @@ body {
     padding: 20px;
 }
 
-.card-body{
+.card-body {
     padding-top: 0px;
 }
 
-.card-block{
+.card-block {
     padding-bottom: 20px;
     width: 100%;
 }
@@ -41,4 +41,32 @@ body {
 .card-body-text-view {
     width: 100%;
     text-align: left;
+}
+
+.main_card {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.main_card_title {
+    font-size: 30px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black
+}
+
+.main_card_main {
+    font-size: 16px;
+    line-height: 35px;
+}
+
+.code {
+    color: red;
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 5px;
+    width:fit-content;
+}
+a{
+    text-decoration:none;
 }
