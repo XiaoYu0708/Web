@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Grp1.0315</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+</head>
+<!-- Navbar-->
+<nav class="navbar bg-light fixed-top" data-bs-theme="light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Grp1.0315</a>
+  </div>
+</nav>
+
+<style>
+  body {
+    padding-top: 200px;
+    background-color: rgb(161, 194, 225);
+  }
+
+  html {
+    width: 90%;
+    background-color: rgb(161, 194, 225);
+  }
+
+  .btn {
+    width: 100%;
+    font-size: 14px;
+
+    margin: 20px 0px 20px 0px;
+    background-color: rgb(76, 94, 125);
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+    transition: 0.5s;
+  }
+</style>
+
+<body>
+  <div class="container-contact">
+    <div class=" row row-block">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <p id="view_text"></p>
+        <canvas id="myCanvas" width="400" height="400" style="border:1px solid #000000;"></canvas>
+      </div>
+      <div class="col-sm-4">
+        <button class="btn" onclick="Power()">冪函數（Power function）</button>
+        <button class="btn" onclick="Exponential()">指數函數（Exponential function）</button>
+        <button class="btn" onclick="Logarithm()">對數函數（Logarithm）</button>
+        <button class="btn" onclick="Trigonometric()">三角函數（Trigonometric functions）</button>
+        <button class="btn" onclick="Inverse_trigonometric()">反三角函數（Inverse trigonometric functions）</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<script>
+  function Power() {
+
+    let c = document.getElementById("myCanvas");
+    let view_text = document.getElementById("view_text");
+    view_text.innerHTML = "冪函數（Power function）";
+    c.width = c.width;
+    let ctx = c.getContext("2d");
+
+    ctx.translate(200, 200);
+    ctx.beginPath();
+    ctx.moveTo(-200, 0);
+    ctx.lineTo(200, 0);
+    ctx.moveTo(0, -200);
+    ctx.lineTo(0, 200);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(-200, Math.pow(-200, 2));
+    for (let i = -200; i <= 200; i++) {
+      ctx.lineTo(i, -Math.pow(i / 20, 2) * 20);
+    }
+    ctx.stroke();
+  }
+  function Exponential() {
+    let c = document.getElementById("myCanvas");
+    let view_text = document.getElementById("view_text");
+    view_text.innerHTML = "指數函數（Exponential function）";
+    c.width = c.width;
+    let ctx = c.getContext("2d");
+
+    ctx.translate(200, 200);
+
+    ctx.beginPath();
+    ctx.moveTo(-200, 0);
+    ctx.lineTo(200, 0);
+    ctx.moveTo(0, -200);
+    ctx.lineTo(0, 200);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(-200, Math.pow(Math.E, -200));
+    for (let i = -200; i <= 200; i++) {
+      ctx.lineTo(i, -Math.pow(Math.E, i / 20) * 20 + 200);
+    }
+    ctx.stroke();
+  }
+  function Logarithm() {
+    let c = document.getElementById("myCanvas");
+    let view_text = document.getElementById("view_text");
+    view_text.innerHTML = "對數函數（Logarithm）";
+    c.width = c.width;
+    let ctx = c.getContext("2d");
+
+    ctx.translate(200, 200);
+
+    ctx.beginPath();
+    ctx.moveTo(-200, 0);
+    ctx.lineTo(200, 0);
+    ctx.moveTo(0, -200);
+    ctx.lineTo(0, 200);
+    ctx.stroke();
+
+    ctx.beginPath();
+    for (let i = 0; i <= 200; i++) {
+      ctx.lineTo(i, -Math.log(i / 20) * 20);
+    }
+    ctx.stroke();
+  }
+  function Trigonometric() {
+    let c = document.getElementById("myCanvas");
+    let view_text = document.getElementById("view_text");
+    view_text.innerHTML = "三角函數（Trigonometric functions）";
+    c.width = c.width;
+    let ctx = c.getContext("2d");
+
+    ctx.translate(200, 200);
+
+    ctx.beginPath();
+    ctx.moveTo(-200, 0);
+    ctx.lineTo(200, 0);
+    ctx.moveTo(0, -200);
+    ctx.lineTo(0, 200);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "red";
+    for (let i = -200; i <= 200; i++) {
+      ctx.lineTo(i, -Math.sin(i / 20) * 20);
+    }
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "blue";
+    for (let i = -200; i <= 200; i++) {
+      ctx.lineTo(i, -Math.cos(i / 20) * 20);
+    }
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "green";
+    for (let i = -200; i <= 200; i++) {
+      let y = -Math.tan(i / 20) * 20;
+      ctx.lineTo(i, y);
+    }
+    ctx.stroke();
+  }
+  function Inverse_trigonometric() {
+    let c = document.getElementById("myCanvas");
+    let view_text = document.getElementById("view_text");
+    view_text.innerHTML = "反三角函數（Inverse trigonometric functions）";
+    c.width = c.width;
+    let ctx = c.getContext("2d");
+
+    ctx.translate(200, 200);
+
+    ctx.beginPath();
+    ctx.moveTo(-200, 0);
+    ctx.lineTo(200, 0);
+    ctx.moveTo(0, -200);
+    ctx.lineTo(0, 200);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "red";
+    for (let i = -200; i <= 200; i++) {
+      ctx.lineTo(-Math.sin(i / 20) * 20, i);
+    }
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "blue";
+    for (let i = -200; i <= 200; i++) {
+      ctx.lineTo(-Math.cos(i / 20) * 20, i);
+    }
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "green";
+    for (let i = -200; i <= 200; i++) {
+      let y = -Math.tan(i / 20) * 20;
+      ctx.lineTo(y, i);
+    }
+    ctx.stroke();
+  }
+
+
+</script>
+
+</html>
