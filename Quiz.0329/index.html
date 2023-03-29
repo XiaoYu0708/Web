@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quiz.0329</title>
+</head>
+
+<body>
+    <p id="output1"></p>
+    <p id="output2"></p>
+</body>
+<script>
+    let output1 = document.getElementById("output1")
+    let output2 = document.getElementById("output2")
+
+    function reverseArray(arr) {
+        let result = [];
+        for (let i = arr.length - 1; i >= 0; i--) {
+            result.push(arr[i]);
+        }
+        return result
+    }
+
+    function reverseArrayInPlace(arr) {
+        for (let i = 0; i < Math.floor(arr.length / 2); i++) {
+            let temp = arr[i];
+            arr[i] = arr[arr.length - 1 - i];
+            arr[arr.length - 1 - i] = temp;
+        }
+
+    }
+
+    let myArray = [4, 2, 3, 5];
+    output1.innerHTML = reverseArray(myArray); // [5, 4, 3, 2, 1]
+
+    reverseArrayInPlace(myArray);
+    output2.innerHTML = myArray; // [5, 4, 3, 2, 1]
+</script>
+
+</html>
