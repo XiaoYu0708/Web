@@ -1,5 +1,5 @@
 # Web
-|名稱|展示|檔案|說明|
+|名稱|展示|檔案|備註|
 |:----:|:----:|:----:|:----:|
 |xiaoyu|[展示連結](https://xiaoyu0708.github.io/Web/xiaoyu/index.html)|[檔案連結](https://github.com/XiaoYu0708/Web/tree/master/Grp1_0315)|我的主頁|
 |tariff|[展示連結](https://xiaoyu0708.github.io/Web/tariff/index.html)|[檔案連結](https://github.com/XiaoYu0708/Web/tree/master/tariff)|郵遞資費表|
