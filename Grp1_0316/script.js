@@ -57,7 +57,7 @@ function renderCalendar() {
     const calendarDays = document.querySelectorAll(".days div");
     calendarDays.forEach(function (calendarDay) {
         calendarDay.addEventListener("click", function () {
-            alert("您選擇的時間為 " +  currentYear + "年" + currentMonth + "月" + this.innerHTML + "日");
+            alert("您選擇的時間為 " + currentYear + "年" + currentMonth + "月" + this.innerHTML + "日");
         });
     });
 }
@@ -104,6 +104,13 @@ addTodoBtn.addEventListener("click", function () {
         label.innerHTML = todoInput.value;
         label.style.wordWrap = "break-word";
         label.style.maxWidth = "80%"
+
+        label.onclick = function () {
+            let pre = prompt("輸入\""+ this.innerHTML +"\"的修改內容");
+            if (pre != null) {
+                this.innerHTML = pre;
+            }
+        };
 
         button.innerHTML = "刪除";
         button.className = "btn";
