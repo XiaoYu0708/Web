@@ -131,7 +131,7 @@ addTodoBtn.addEventListener("click", function () {
 
         button.onclick = function () {
             li = this.parentNode;
-            var label = this.parentNode.querySelector('.form-check-label').innerHTML;
+            var label = li.parentNode.querySelector('label').innerHTML;
             document.getElementById("static_backdrop_check_label").innerHTML = "是否要刪除項目：<br>" + label;
         };
 
@@ -149,8 +149,8 @@ addTodoBtn.addEventListener("click", function () {
 });
 
 // 刪除待辦事項
-function del() {
-    li.parentNode.removeChild(li);
+function del() {    
+    li.closest('li').remove()
 }
 
 // 倒數計時日期
