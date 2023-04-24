@@ -150,7 +150,7 @@ addTodoBtn.addEventListener("click", function () {
 
 // 刪除待辦事項
 function del() {    
-    li.closest('li').remove()
+    li.closest('li').remove();
 }
 
 // 倒數計時日期
