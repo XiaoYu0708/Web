@@ -96,6 +96,7 @@ addTodoBtn.addEventListener("click", function () {
         const label = document.createElement("label");
         const div = document.createElement("div");
         const button0 = document.createElement("button");
+        const a = document.createElement("a");
         const button = document.createElement("button");
 
         input.className = "form-check-input me-1";
@@ -105,7 +106,7 @@ addTodoBtn.addEventListener("click", function () {
         label.className = "form-check-label";
         label.innerHTML = todoInput.value;
         label.style.wordWrap = "break-word";
-        label.style.maxWidth = "80%"
+        label.style.maxWidth = "75%"
 
         button0.innerHTML = "修改";
         button0.className = "btn";
@@ -121,6 +122,8 @@ addTodoBtn.addEventListener("click", function () {
 
         }
 
+        a.innerHTML = " ";
+
         button.innerHTML = "刪除";
         button.className = "btn";
         button.dataset.bsToggle = "modal";
@@ -133,6 +136,7 @@ addTodoBtn.addEventListener("click", function () {
         };
 
         div.appendChild(button0);
+        div.appendChild(a);
         div.appendChild(button);
 
         todo.appendChild(input);
