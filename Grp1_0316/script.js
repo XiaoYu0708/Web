@@ -94,6 +94,8 @@ addTodoBtn.addEventListener("click", function () {
 
         const input = document.createElement("input");
         const label = document.createElement("label");
+        const div = document.createElement("div");
+        const button0 = document.createElement("button");
         const button = document.createElement("button");
 
         input.className = "form-check-input me-1";
@@ -105,12 +107,19 @@ addTodoBtn.addEventListener("click", function () {
         label.style.wordWrap = "break-word";
         label.style.maxWidth = "80%"
 
-        label.onclick = function () {
-            let pre = prompt("輸入\""+ this.innerHTML +"\"的修改內容");
+        button0.innerHTML = "修改";
+        button0.className = "btn";
+
+        button0.onclick = function () {
+            li = this.parentNode;
+            let pre = prompt("輸入\"" + li.parentNode.querySelector('label').innerHTML + "\"的修改內容");
+
             if (pre != null) {
-                this.innerHTML = pre;
+                li.parentNode.querySelector('label').innerHTML = pre;
             }
-        };
+
+
+        }
 
         button.innerHTML = "刪除";
         button.className = "btn";
@@ -123,9 +132,12 @@ addTodoBtn.addEventListener("click", function () {
             document.getElementById("static_backdrop_check_label").innerHTML = "是否要刪除項目：<br>" + label;
         };
 
+        div.appendChild(button0);
+        div.appendChild(button);
+
         todo.appendChild(input);
         todo.appendChild(label);
-        todo.appendChild(button);
+        todo.appendChild(div);
 
         todoList.appendChild(todo);
         todoInput.value = "";
