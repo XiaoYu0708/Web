@@ -8,5 +8,4 @@
 |bookkeeping|[展示連結](https://xiaoyu0708.github.io/Web/bookkeeping/index.html)|[檔案連結](https://github.com/XiaoYu0708/Web/tree/master/bookkeeping)|記帳|
 |Quiz.0329|[展示連結](https://xiaoyu0708.github.io/Web/Quiz.0329/index.html)|[檔案連結](https://github.com/XiaoYu0708/Web/tree/master/Quiz.0329)|反轉數組|
 |Grp1_0316 & Grp.0420|[展示連結](https://xiaoyu0708.github.io/Web/Grp1_0316%26Grp.0420/index.html)|[檔案連結](https://github.com/XiaoYu0708/Web/tree/master/Grp1_0316%26Grp.0420)|曆法|
-|Grp1_0316&Grp.0420|[展示連結](https://xiaoyu0708.github.io/Web/Grp1_0316&Grp.0420/index.html)|[檔案連結](https://github.com/XiaoYu0708/Web/tree/master/Grp1_0316&Grp.0420)|曆法|
 |Grp1_0315|[展示連結](https://xiaoyu0708.github.io/Web/Grp1_0315/index.html)|[檔案連結](https://github.com/XiaoYu0708/Web/tree/master/Grp1_0315)|數學圖形|
