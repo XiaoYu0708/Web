@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Minecraft Server Resource Pack</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="css/main.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</head>
+
+<!-- Navbar-->
+<nav class="navbar bg-light fixed-top" data-bs-theme="light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Google Drive Minecraft Server Resource Pack</a>
+    </div>
+</nav>
+
+
+<body>
+    <!-- TOP Button -->
+    <div class="fixed-bottom">
+        <div class="row">
+            <div class="col-sm-11"></div>
+            <div class="col-sm-1 top">
+                <a href="#top">
+                    <button class="btn btn-info" style="width: 50px;height: 50px;">🔼</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 内容區塊 -->
+    <div class="container-contact">
+        <div class="row row-block">
+            <!-- 大區域 -->
+            <div class="col-sm-12">
+                <!-- 小區塊 -->
+                <div class="card-block" id="Draw">
+                    <div class="main_card">
+                        <h5 class="main_card_title">Google Drive Minecraft Server Resource Pack</h5>
+                        <input class="form-control" id="url" placeholder="請輸入網址" type="text" maxlength="82">
+                        <button type="button" class="btn btn-outline-primary" id="button1">確定</button>
+                        <div class="main_card_main">
+                            <a name="view"></a>
+                            <a name="view"></a><br>
+                            <a name="view"></a>
+                            <a name="view"></a>
+                            <a name="view"></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 區塊尾 -->
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    document.getElementById("button1").addEventListener("click", (event) => {
+        if (document.getElementById("url").value != null && document.getElementById("url").value.length == 82) {
+            let text = document.getElementById("url").value;
+            let out = "";
+
+            for (i = 32; i < 65; i++) {
+                out += text[i];
+            }
+
+            out = "https://drive.google.com/uc?export=download&id=" + out;
+
+            document.getElementsByName("view")[0].innerHTML = "請將下列網址貼於server.properties 中 <br><a style=\"color:red;\">resource-pack=</a>";
+            document.getElementsByName("view")[1].innerHTML = out;
+            document.getElementsByName("view")[1].href = out;
+            document.getElementsByName("view")[2].innerHTML = "並到";
+            document.getElementsByName("view")[3].innerHTML = "這裡";
+            document.getElementsByName("view")[3].href = "https://emn178.github.io/online-tools/sha1_checksum.html";
+            document.getElementsByName("view")[4].innerHTML = "計算SHA-1<br>貼於server.properties 中 <br><a style=\"color:red;\">resource-pack-sha1=</a>";
+        }else{
+            for(i=0;i<=4;i++){
+                document.getElementsByName("view")[i].innerHTML = "";
+            }
+            document.getElementsByName("view")[0].innerHTML = "請輸入正確的Google Drive Minecraft Server Resource Pack 分享網址";
+        }
+
+    });
+
+</script>
+
+</html>
