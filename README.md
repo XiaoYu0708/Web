@@ -2,7 +2,7 @@
 |標題|展示|檔案|備註|
 |:----:|:----:|:----:|:----:|
 |xiaoyu|[展示連結](https://xiaoyu0708.github.io/Web/xiaoyu/index.html)|[檔案連結](https://github.com/XiaoYu0708/Web/tree/master/xiaoyu)|我的主頁|
-|minecraft_server_resources|[展示連結](https://xiaoyu0708.github.io/Web/minecraft_server_resources/index.html)|[檔案連結](https://github.com/XiaoYu0708/Web/tree/master/minecraft_server_resources)|我的主頁|
+|minecraft_server_resource_pack|[展示連結](https://xiaoyu0708.github.io/Web/minecraft_server_resource_pack/index.html)|[檔案連結](https://github.com/XiaoYu0708/Web/tree/master/minecraft_server_resource_pack)|Minecraft Server Rescourse Pack 轉址|
 |tariff|[展示連結](https://xiaoyu0708.github.io/Web/tariff/index.html)|[檔案連結](https://github.com/XiaoYu0708/Web/tree/master/tariff)|郵遞資費表|
 |sourse|[展示連結](https://xiaoyu0708.github.io/Web/sourse/index.html)|[檔案連結](https://github.com/XiaoYu0708/Web/tree/master/sourse)|課表|
 |draw|[展示連結](https://xiaoyu0708.github.io/Web/draw/index.html)|[檔案連結](https://github.com/XiaoYu0708/Web/tree/master/draw)|畫姓名|
