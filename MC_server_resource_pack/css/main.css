@@ -48,6 +48,7 @@ body {
     padding: 10px;
     border-radius: 5px;
     text-align: left;
+    min-width: 100%;
 }
 
 .main_card_title {
