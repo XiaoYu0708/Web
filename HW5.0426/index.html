@@ -20,9 +20,9 @@
 <body style="padding: 50px;">
     <div class="container-contact">
         <div class=" row row-block">
-            <div class="col-sm-4">
+            <div class="col-sm-6">
 
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="min-width: 18rem;">
                     <div class="card-header">
                         商品
                     </div>
@@ -32,11 +32,8 @@
                 </div>
 
             </div>
-            <div class="col-sm-4">
-
-            </div>
-            <div class="col-sm-4">
-                <div class="card" style="width: 18rem;">
+            <div class="col-sm-6">
+                <div class="card" style="min-width: 18rem;">
                     <div class="card-header">
                         購物車
                     </div>
@@ -51,7 +48,7 @@
 </body>
 
 <script>
-    let store_sp = ['商品1', '商品2', '商品3', '商品4'];
+    let store_sp = ['鉛筆', '原子筆', '筆記本', '麥克筆'];
 
     let order_sp = [];
 
@@ -63,7 +60,7 @@
 
 
     function resave() {
-        order_sp.sort(function (a, b) { return a[2] - b[2] });
+        order_sp.sort(function (a, b) { return store_sp.indexOf(a) - store_sp.indexOf(b) });
         localStorage.clear();
         localStorage.setItem('order_sp', JSON.stringify(order_sp));
         window.location.reload();
@@ -103,14 +100,26 @@
     try {
         for (i = 0; i < store_sp.length; i++) {
             const li = document.createElement("li");
-            li.innerHTML = store_sp[i];
+            const label = document.createElement("label");
+            const button = document.createElement("button");
+
             li.name = store_sp[i];
             li.className = "list-group-item";
-            li.addEventListener("click", function () {
+
+            label.innerHTML = store_sp[i];
+            label.style.float = "left";
+
+            button.innerHTML = "加入購物車";
+            button.className = "btn";
+            button.name = store_sp[i];
+            button.style.float = "right";
+            button.addEventListener("click", function () {
                 add(this.name);
             });
 
             document.getElementById("store_ul").appendChild(li);
+            li.appendChild(label);
+            li.appendChild(button);
         }
     } catch (e) {
         console.log(e);
@@ -119,22 +128,53 @@
     try {
         for (i = 0; i < order_sp.length; i++) {
             const li = document.createElement("li");
-            li.innerHTML = order_sp[i];
-            li.name = order_sp[i];
+            const label = document.createElement("label");
+            const label1 = document.createElement("label");
+            const button1 = document.createElement("button");
+            const button2 = document.createElement("button");
+
             li.className = "list-group-item";
             li.addEventListener("click", function () {
                 del_order1(this.name);
             });
 
-            document.getElementById("order_ul").appendChild(li);
+            label.innerHTML = order_sp[i];
+            label.style.float = "left";
+
+            button1.className = "btn";
+            button1.innerHTML = "+";
+            button1.name = order_sp[i];
+            button1.style.float = "right";
+            button1.addEventListener("click", function () {
+                add(this.name);
+            });
+
+            button2.className = "btn";
+            button2.innerHTML = "-";
+            button2.name = order_sp[i];
+            button2.style.float = "right";
+            button2.addEventListener("click", function () {
+                del_order1(this.name);
+            });
+
 
             n = 1;
             while (order_sp[i] == order_sp[i + n]) {
                 n++;
             }
 
-            li.innerHTML = order_sp[i] + '*' + n;
+            label1.innerHTML = n;
+            label1.style.float = "right";
 
+            document.getElementById("order_ul").appendChild(li);
+            li.appendChild(label);
+
+
+            li.appendChild(button1);
+            li.appendChild(label1);
+            li.appendChild(button2);
+
+            i = i + n - 1;
         }
     } catch (e) {
         console.log(e);
