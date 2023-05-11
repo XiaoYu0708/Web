@@ -59,8 +59,6 @@
         order_sp = JSON.parse(localStorage.getItem('order_sp'));
     } catch (e) {
         console.log(e)
-    }finally{
-        resave();
     }
 
 
@@ -72,8 +70,15 @@
     }
 
     function add(name) {
-        order_sp.push(name);
-        resave();
+        try {
+            order_sp.push(name);
+            resave();
+        } catch (e) {
+            order_sp = [];
+            order_sp.push(name);
+            resave();
+        }
+
     }
 
     function del_order1(name) {
