@@ -49,6 +49,7 @@
 
 <script>
     let store_sp = ['鉛筆', '原子筆', '筆記本', '麥克筆'];
+    let store_sp_money = [10, 20, 35, 30];
 
     let order_sp = [];
 
@@ -101,6 +102,7 @@
         for (i = 0; i < store_sp.length; i++) {
             const li = document.createElement("li");
             const label = document.createElement("label");
+            const label2 = document.createElement("label");
             const button = document.createElement("button");
 
             li.name = store_sp[i];
@@ -108,6 +110,10 @@
 
             label.innerHTML = store_sp[i];
             label.style.float = "left";
+
+            label2.innerHTML = "單價" + store_sp_money[i] + "元";
+            label2.style.float = "right";
+
 
             button.innerHTML = "加入購物車";
             button.className = "btn";
@@ -120,15 +126,19 @@
             document.getElementById("store_ul").appendChild(li);
             li.appendChild(label);
             li.appendChild(button);
+            li.appendChild(label2);
         }
     } catch (e) {
         console.log(e);
     }
 
     try {
+        const li1 = document.createElement("li");
+        let total = 0;
         for (i = 0; i < order_sp.length; i++) {
             const li = document.createElement("li");
             const label = document.createElement("label");
+            const label01 = document.createElement("label");
             const label1 = document.createElement("label");
             const button1 = document.createElement("button");
             const button2 = document.createElement("button");
@@ -163,16 +173,26 @@
             label1.innerHTML = n;
             label1.style.float = "right";
 
+            label01.innerHTML = store_sp_money[store_sp.indexOf(order_sp[i])] * label1.innerHTML + "元";
+            label01.style.float = "right";
+
             document.getElementById("order_ul").appendChild(li);
+
             li.appendChild(label);
 
 
             li.appendChild(button1);
             li.appendChild(label1);
             li.appendChild(button2);
+            li.appendChild(label01);
 
             i = i + n - 1;
+            total += store_sp_money[store_sp.indexOf(order_sp[i])] * label1.innerHTML;
         }
+        li1.innerHTML = "總金額為：" + total + "元";
+        li1.style.textAlign = "right";
+        li1.style.paddingRight = "30px"
+        document.getElementById("order_ul").appendChild(li1);
     } catch (e) {
         console.log(e);
     }
