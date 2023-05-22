@@ -1,5 +1,5 @@
 # Web
-|標題|展示|檔案|備註|
+|標題|網頁|檔案|備註|
 |:----:|:----:|:----:|:----:|
 |xiaoyu|[展示連結](https://xiaoyu0708.github.io/Web/xiaoyu/index.html)|[檔案連結](https://github.com/XiaoYu0708/Web/tree/master/xiaoyu)|我的主頁|
 |MC_server_resource_pack|[展示連結](https://xiaoyu0708.github.io/Web/MC_server_resource_pack/index.html)|[檔案連結](https://github.com/XiaoYu0708/Web/tree/master/MC_server_resource_pack)|MC 材質包連結轉址|
