@@ -12,4 +12,3 @@
 |Grp1_0315|[網頁連結](https://xiaoyu0708.github.io/Web/Grp1_0315/index.html)|[檔案連結](https://github.com/XiaoYu0708/Web/tree/master/Grp1_0315)|數學圖形|
 |HW5.0426|[網頁連結](https://xiaoyu0708.github.io/Web/HW5.0426/index.html)|[檔案連結](https://github.com/XiaoYu0708/Web/tree/master/HW5.0426)|購物車|
 |Grp2.0510|[網頁連結](https://xiaoyu0708.github.io/Web/Grp2.0510/index.html)|[檔案連結](https://github.com/XiaoYu0708/Web/tree/master/Grp2.0510)|JavaScript 程式設計實習 學期時間表|
-|valorant_stop_and_match_v1.0.1|[網頁連結](https://xiaoyu0708.github.io/Web/valorant_stop_and_match_v1.0.1/index.html)|[檔案連結](https://github.com/XiaoYu0708/Web/tree/master/valorant_stop_and_match_v1.0.1)|valorant_stop_and_match_v1.0.1|
