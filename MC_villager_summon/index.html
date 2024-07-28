@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Minecraft Server Resource Pack</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="css/main.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</head>
+
+<!-- Navbar-->
+<nav class="navbar bg-light fixed-top" data-bs-theme="light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Minecraft 1.21 村民商店指令</a>
+    </div>
+</nav>
+
+
+<body>
+    <!-- TOP Button -->
+    <div class="fixed-bottom">
+        <div class="row">
+            <div class="col-sm-11"></div>
+            <div class="col-sm-1 top">
+                <a href="#top">
+                    <button class="btn btn-info" style="width: 50px;height: 50px;">🔼</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 内容區塊 -->
+    <div class="container-contact">
+        <div class="row row-block">
+            <!-- 大區域 -->
+            <div class="col-12">
+                <!-- 小區塊 -->
+                <div class="card-block" id="Draw">
+                    <div class="main_card">
+                        <h5 class="main_card_title">Minecraft 1.21 村民商店指令</h5>
+                        <form class="row gy-2 gx-3 align-items-center">
+                            <div class="col-6">
+                                <label class="form-label">村民職業</label>
+                                <select class="form-select" id="shop_profession" required>
+                                    <option value="" selected>選擇村民職業</option>
+                                    <option value="minecraft:armorer">製甲師</option>
+                                    <option value="minecraft:butcher">屠夫</option>
+                                    <option value="minecraft:cartographer">製圖匠</option>
+                                    <option value="minecraft:cleric">牧師</option>
+                                    <option value="minecraft:farmer">農夫</option>
+                                    <option value="minecraft:fisherman">漁夫</option>
+                                    <option value="minecraft:fletcher">製箭師</option>
+                                    <option value="minecraft:leatherworker">製皮匠</option>
+                                    <option value="minecraft:librarian">圖書管理員</option>
+                                    <option value="minecraft:mason">石匠</option>
+                                    <option value="minecraft:shepherd">牧羊人</option>
+                                    <option value="minecraft:toolsmith">工匠</option>
+                                    <option value="minecraft:weaponsmith">武器匠</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">村民總類</label>
+                                <select class="form-select" id="shop_type" required>
+                                    <option value="" selected>選擇村民總類</option>
+                                    <option value="minecraft:desert">沙漠</option>
+                                    <option value="minecraft:jungle">叢林</option>
+                                    <option value="minecraft:plains">平原</option>
+                                    <option value="minecraft:savanna">莽原</option>
+                                    <option value="minecraft:snow">雪地</option>
+                                    <option value="minecraft:swamp">沼澤</option>
+                                    <option value="minecraft:taiga">針葉林</option>
+                                </select>
+                            </div>
+
+                            <div id="Recipes"></div>
+
+                            <div class="col-12">
+                                <button type="button" class="btn btn-primary" onclick="addRecipe()">新增商品</button>
+                            </div>
+
+                            <div class="col-12">
+                                <button type="button" class="btn btn-primary" onclick="mySubmit()">送出</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- 區塊尾 -->
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const Recipe = "<div class=\"Recipe\"\><label class=\"form-label\" style=\"font-weight: bold; font-size: 20px;\"></label> <div class=\"col-6\"><label class=\"form-label\">商品</label><label class=\"visually-hidden\">Name</label><input type=\"text\" class=\"form-control\" placeholder=\"商品 (id, 例如:minecraft:stone)\"><input type=\"number\" class=\"form-control\" placeholder = \"數量\" /></div><div class=\"col-6\"></div><div class=\"col-12\"><label class=\"form-label\">售出</label><label class=\"visually-hidden\" >Name</label><input type=\"text\" class=\"form-control\" placeholder=\"售出商品 (id, 例如:minecraft:stone)\"><input type=\"number\" class=\"form-control\" placeholder = \"數量\" /><button type = \"button\" onclick = \"deleteRecipe(this)\" class=\"btn btn-danger\">刪除</button></div>";
+
+    function addRecipe() {
+        var recipediv = document.createElement("div");
+        recipediv.className = "Recipe";
+
+        var col_6_div1 = document.createElement("div");
+        col_6_div1.className = "col-6";
+
+        var col_6_div2 = document.createElement("div");
+        col_6_div2.className = "col-6";
+
+        var col_12_div = document.createElement("div");
+        col_12_div.className = "col-12";
+
+        var label = document.createElement("label");
+        label.className = "form-label";
+        label.innerHTML = "商品"
+        label.style = "font-weight: bold; font-size: 20px;";
+
+        recipediv.appendChild(label);
+
+        label = document.createElement("label");
+        label.className = "form-label";
+        label.innerHTML = "商品";
+
+        col_6_div1.appendChild(label);
+
+        var input = document.createElement("input");
+        input.type = "text";
+        input.className = "form-control";
+        input.placeholder = "商品 (id, 例如:minecraft:stone)";
+
+        col_6_div1.appendChild(input);
+
+        input = document.createElement("input");
+        input.type = "number";
+        input.className = "form-control";
+        input.placeholder = "數量";
+
+        col_6_div1.appendChild(input);
+
+        //
+
+        label = document.createElement("label");
+        label.className = "form-label";
+        label.innerHTML = "商品B (非必要)";
+
+        col_6_div2.appendChild(label);
+
+        var input = document.createElement("input");
+        input.type = "text";
+        input.className = "form-control";
+        input.placeholder = "商品B (id, 例如:minecraft:stone)";
+
+        col_6_div2.appendChild(input);
+
+        input = document.createElement("input");
+        input.type = "number";
+        input.className = "form-control";
+        input.placeholder = "數量";
+
+        col_6_div2.appendChild(input);
+
+        //
+
+        label = document.createElement("label");
+        label.className = "form-label";
+        label.innerHTML = "售出";
+
+        col_12_div.appendChild(label);
+
+        input = document.createElement("input");
+        input.type = "text";
+        input.className = "form-control";
+        input.placeholder = "售出商品 (id, 例如:minecraft:stone)";
+
+        col_12_div.appendChild(input);
+
+        input = document.createElement("input");
+        input.type = "number";
+        input.className = "form-control";
+        input.placeholder = "數量";
+
+        col_12_div.appendChild(input);
+
+        var button = document.createElement("button");
+        button.type = "button";
+        button.onclick = function () { deleteRecipe(this); };
+        button.className = "btn btn-danger";
+        button.innerHTML = "刪除";
+
+        recipediv.appendChild(col_6_div1);
+        recipediv.appendChild(col_6_div2);
+        recipediv.appendChild(col_12_div);
+        recipediv.appendChild(button);
+
+        document.querySelector("#Recipes").appendChild(recipediv);
+
+        var recipeIndex = 1;
+        document.querySelectorAll(".Recipe").forEach((value) => {
+            value.id = "Recipe" + recipeIndex;
+            value.querySelectorAll("label")[0].innerHTML = "商品" + recipeIndex;
+            recipeIndex += 1;
+        });
+    }
+
+    function mySubmit() {
+
+        var finalCommand = "";
+
+        villagerType = document.querySelector("#shop_type").value;
+        villagerProfession = document.querySelector("#shop_profession").value;
+
+
+        finalCommand = 'summon minecraft:villager ~ ~1 ~ \{VillagerData: \{ type: \"' + villagerType + '\", profession: \"' + villagerProfession + '\",level: 99}, Invulnerable: 1, NoAI: 1, Offers: { Recipes: [';
+
+        var recipes = document.querySelectorAll(".Recipe");
+
+        recipes.forEach((value) => {
+            //get input value
+            var myInputValue = [];
+            value.querySelectorAll("input").forEach((x) => {
+                myInputValue.push(x.value);
+            });
+
+            if (myInputValue[0] == "" || myInputValue[1] == "" || myInputValue[4] == "" || myInputValue[5] == "") {
+                return;
+            }
+
+            //run
+            finalCommand += "{maxUses: 100000000,rewardExp: false,buy: {count: ";
+            if (myInputValue[2] == "" || myInputValue[3] == "") {
+                finalCommand += myInputValue[1];
+                finalCommand += ",id: \"";
+                finalCommand += myInputValue[0];
+                finalCommand += "\"},sell: {count: ";
+                finalCommand += myInputValue[5];
+                finalCommand += ",id: \"";
+                finalCommand += myInputValue[4];
+            } else {
+                finalCommand += myInputValue[1];
+                finalCommand += ",id: \"";
+                finalCommand += myInputValue[0];
+                finalCommand += "\"},buyB: {count: ";
+                finalCommand += myInputValue[3];
+                finalCommand += ",id: \"";
+                finalCommand += myInputValue[2];
+                finalCommand += "\"},sell: {count: ";
+                finalCommand += myInputValue[5];
+                finalCommand += ",id: \"";
+                finalCommand += myInputValue[4];
+            }
+            finalCommand += "\"}},";
+        });
+        finalCommand += "]}}";
+        alert(finalCommand);
+    }
+
+    function deleteRecipe(value) {
+        value.parentElement.remove();
+        var recipeIndex = 1;
+        document.querySelectorAll(".Recipe").forEach((value) => {
+            value.id = "Recipe" + recipeIndex;
+            value.querySelectorAll("label")[0].innerHTML = "商品" + recipeIndex;
+            value.querySelectorAll("label")[0].style = "font-weight: bold; font-size: 20px;";
+            recipeIndex += 1;
+        });
+    }
+
+</script>
+
+</html>
